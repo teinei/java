@@ -117,7 +117,7 @@ public class AllGenesStored {
         //======
         /*
         //------
-        //test 2203
+        //test 2203, test passed
         String dna="ATGATCGCTAATGCTTAAGCTATG";//eg 2203
         testOn(dna);//call site [1]
         //test 2203

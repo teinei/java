@@ -21,7 +21,7 @@ public class AllGenesStored {
             //System.out.println("1)i is "+i);
             //System.out.println("2)dna is "+dna);
             //System.out.println("3)startIndex is "+startIndex);
-            String currentGene=findGene(dna,startIndex);
+            String currentGene=findGene(dna,startIndex);// call set [3]
             //
             //System.out.println("4)currentGene is "+currentGene);
             if(currentGene.isEmpty()){
@@ -66,8 +66,8 @@ public class AllGenesStored {
     }*/
     public void testOn(String dna){
         System.out.println("testing printAllGenes on "+dna);
-        System.out.println("==========");
-        StorageResource genes = getAllGenes(dna);
+        //System.out.println("==========");
+        StorageResource genes = getAllGenes(dna);// call set [2]
         //q3 how many genes
         int count=0;
         int q4=0;
@@ -96,12 +96,33 @@ public class AllGenesStored {
         System.out.println("the length of longest gene is "+q7);
     }
     public void test(){
+        //2210 test find gene
+        /*
+        String dna="ATGCCCGGGAAATAACCC";
+        String gene=findGene(dna);
+        if(!gene.equals("ATGCCCGGGAAATAA")){
+            System.out.println("error");
+        }
+        System.out.println("tests finished");
+        */
+        //
         ///*
         //FileResource fr=new FileResource("GRch38dnapart.fa");
-        FileResource fr=new FileResource();
-        //FileResource fr=new FileResource("brca1line.fa");
+        //FileResource fr=new FileResource();
+        //------ test pq 245
+        FileResource fr=new FileResource("brca1line.fa");//not pass
         String dna=fr.asString();//convert file resource to string
-        testOn(dna);//call site 1
+        testOn(dna);
+        //------ test pq 245
+        //======
+        /*
+        //------
+        //test 2203
+        String dna="ATGATCGCTAATGCTTAAGCTATG";//eg 2203
+        testOn(dna);//call site [1]
+        //test 2203
+        //------
+        */
         //*/
         //testOn("AATGCTAACTAGCTGACTAAT");//practice quiz q1
         /*
@@ -124,41 +145,126 @@ public class AllGenesStored {
             }
             else{
                 //
-                currIndex=dnaStr.indexOf(stopCodon,currIndex+1);
+                currIndex=dnaStr.indexOf(stopCodon,currIndex+1);//bug
             }
         }
         return -1;
     }
-    //code from previous
+    //code from  previous
     public String findGene(String dna,int where){
         int startIndex=dna.indexOf("ATG",where);
         if(startIndex==-1){
             return "";
         }
-        int taaIndex=findStopCodon(dna,startIndex,"TAA");
-        int tagIndex=findStopCodon(dna,startIndex,"TAG");
-        int tgaIndex=findStopCodon(dna,startIndex,"TGA");
-        //int temp=Math.min(taaIndex,tagIndex);
-        //int minIndex=Math.min(temp ,tgaIndex);
-        //
+        int taaIndex=findStopCodon(dna,startIndex,"TAA");//call set [4]
+        int tagIndex=findStopCodon(dna,startIndex,"TAG");//call set [5] 
+        int tgaIndex=findStopCodon(dna,startIndex,"TGA");//call site [6] 
+        // use math function
+        int temp=0;
         int minIndex=0;
+        int currIndex=0;
+        String gene="";
+        /*
+        if(taaIndex==-1){
+            //currIndex!=taaIndex;
+            if(tagIndex==-1){
+                if(tgaIndex==-1){
+                    //currIndex=0;
+                    System.out.println("stop codon found");
+                }else{
+                    currIndex=tgaIndex;
+                }
+                
+            }else{
+                //
+                currIndex=Math.min(tgaIndex,tagIndex);
+            }
+        }else{//3 stop codons are all found
+            //
+            temp=Math.min(taaIndex,tagIndex);
+            minIndex=Math.min(temp ,tgaIndex);
+            currIndex=minIndex;
+        }
+        */
+        
+        //
+        if(taaIndex==-1||tagIndex==-1||tgaIndex==-1){
+            //
+        }else{
+            temp=Math.min(taaIndex,tagIndex);
+            minIndex=Math.min(temp ,tgaIndex);
+            currIndex=minIndex;            
+        }
+        
+        //
+        //
+        //
+        if(taaIndex!=-1&&(tagIndex!=-1&&tgaIndex!=-1)){        
+            temp=Math.min(taaIndex,tagIndex);
+            minIndex=Math.min(temp ,tgaIndex);
+            currIndex=minIndex;
+            //gene=dna.substring(startIndex,minIndex+3);
+        } 
+        if(taaIndex!=-1&&tagIndex!=-1&&tgaIndex==-1){
+            currIndex=Math.min(taaIndex,tgaIndex);
+        }
+        if(taaIndex!=-1&&tagIndex==-1&&tgaIndex==-1){
+            currIndex=Math.min(taaIndex,tgaIndex);
+        }    //
+        if(taaIndex==-1&&tgaIndex!=-1&&tgaIndex!=-1){
+            currIndex=Math.min(tagIndex,tgaIndex);
+        }
+        System.out.println();
+        if(taaIndex!=-1&&tagIndex==-1&&tgaIndex==-1){
+            currIndex=taaIndex;
+        }
+        if(taaIndex==-1&&tagIndex!=-1&&tgaIndex==-1){
+            currIndex=tagIndex;
+        }
+        if(taaIndex==-1&&tagIndex==-1&&tgaIndex!=-1){
+            currIndex=tgaIndex;
+        }
+        //
+        //
+        if(currIndex!=0){
+            gene=dna.substring(startIndex,currIndex+3);
+        }
+        System.out.println(taaIndex+","+tagIndex+","+tgaIndex);
+        System.out.println("currIndex is "+currIndex);
+        //
+        //use logical operator
+        /*
+        int minIndex=0;
+        int maxIndex=0;
+        //
         if(taaIndex==-1||
         (tgaIndex!=-1&&tgaIndex<taaIndex)){
             minIndex=tgaIndex;
+            maxIndex=taaIndex;
         }else{
             minIndex=taaIndex;
+            maxIndex=tgaIndex;
         }
         //
         if(minIndex==-1|| 
-        (tgaIndex!=-1&&tgaIndex<minIndex)){
-            minIndex=tgaIndex;
+        (tagIndex!=-1&&tagIndex<minIndex)){
+            minIndex=tagIndex;
+            maxIndex=minIndex;
         }
+        */
         //
         //
         //
+        /*
         if(minIndex==dna.length()){
             return "";
         }
-        return dna.substring(startIndex,minIndex+3);
+        */
+        //System.out.println(minIndex);
+        
+        
+        System.out.println("gene is "+gene);
+        return gene;
+        //return dna.substring(startIndex,minIndex+3);//out of bounds exception
     }
 }

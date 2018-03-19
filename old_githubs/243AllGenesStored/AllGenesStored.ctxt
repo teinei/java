@@ -1,0 +1,17 @@
+#BlueJ class context
+comment0.target=AllGenesStored
+comment0.text=\n\ 243\ week\ 2\ section\ 4\ lecture\ 3\n\ Write\ a\ description\ of\ AllGenesStored\ here.\n\ \n\ @author\ (your\ name)\ Johnny\ teinei\n\ @version\ (a\ version\ number\ or\ a\ date)\ mar16\n
+comment1.params=dna
+comment1.target=edu.duke.StorageResource\ getAllGenes(java.lang.String)
+comment2.params=dna
+comment2.target=double\ cgRatio(java.lang.String)
+comment3.params=dna
+comment3.target=void\ testOn(java.lang.String)
+comment3.text=public\ int\ codonCount(String\ dna,String\ codon){\n\ \ \ \ \ \ \ \ if(\n\ \ \ \ \ \ \ \ return\ 0;\n}
+comment4.params=
+comment4.target=void\ test()
+comment5.params=dnaStr\ startIndex\ stopCodon
+comment5.target=int\ findStopCodon(java.lang.String,\ int,\ java.lang.String)
+comment6.params=dna\ where
+comment6.target=java.lang.String\ findGene(java.lang.String,\ int)
+numComments=7

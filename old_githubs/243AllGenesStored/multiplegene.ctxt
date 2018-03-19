@@ -1,0 +1,11 @@
+#BlueJ class context
+comment0.target=multiplegene
+comment1.params=dna\ Index
+comment1.target=int\ findStartIndex(java.lang.String,\ int)
+comment2.params=dna\ Index
+comment2.target=int\ findStopIndex(java.lang.String,\ int)
+comment3.params=dna
+comment3.target=void\ printAll(java.lang.String)
+comment4.params=
+comment4.target=void\ testFinder()
+numComments=5

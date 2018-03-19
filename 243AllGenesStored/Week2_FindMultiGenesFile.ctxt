@@ -1,0 +1,17 @@
+#BlueJ class context
+comment0.target=Week2_FindMultiGenesFile
+comment0.text=\n\ \n\ Can\ I\ say,\ THE\ ORIGINAL\ ALGORITHM\ DOES\ NOT\ WORK\ WELL???\n\ \n\ Algorithm\ to\ identify\ multiple\ genes\ in\ a\ strand\ of\ DNA\n\ \n\ This\ code\ could\ not\ give\ the\ 'correct'\ answers\ to\ the\ quiz\n\ \n\ but\ I\ believe\ this\ code\ would\ provide\ the\ correct\ answers\!\n\ \n\ @author\ Jeff\n\n
+comment1.params=dnaOri
+comment1.target=java.util.ArrayList\ findGenes(java.lang.String)
+comment2.params=DNA\ start
+comment2.target=int\ findStopCodon(java.lang.String,\ int)
+comment2.text=\n\ Pass\ one\ start\ codon\ position\ to\ the\ method\n\ Find\ out\ the\ first\ stop\ codon\ after\ that\ start\ codon,\ then\ return\ it's\ position\n\ Algorithm\:\ \n\ 1\ once\ the\ start\ codon\ is\ located\n\ 2\ divide\ all\ bases\ following\ the\ start\ codon\ into\ 3-base\ codons\n\ 3\ check\ each\ codon\ to\ see\ if\ any\ codon\ is\ equal\ to\ "TAG",\ "TGA",\ or\ "TAA"\n\ 4\ if\ we\ get\ any\ hit,\ then\ that\ first\ hit\ is\ the\ stop\ codon\n\ 5\ return\ the\ index\ position\ of\ that\ stop\ codon\n\ 6\ if\ no\ stop\ codon\ exist\ in\ this\ "frame",\ then\ return\ -1\ as\ the\ stop\ codon\ position\n\ \n\ example\:\ GAATGACTGATAGATATGCTTGTA\n\ 1\ locate\ the\ start\ codon\ ATG\ at\ index\ 2\n\ 2\ divide\ and\ formate\ the\ frame\:\ GA-ATG-ACT-GAT-AGA-TAT-GCT-TGA-A\n\ 3\ the\ TGA\ in\ the\ end\ is\ the\ stop\ codon\n\ 4\ return\ the\ index\ of\ TGA\:\ 20\n\ 5\ the\ gene\:\ from\ 2\ to\ 20+3;\n\ \n\ @param\ DNA\n\ @param\ start\n\ @return\n
+comment3.params=
+comment3.target=java.lang.String\ readStrFromFile()
+comment3.text=\n\ Read\ DNA\ string\ from\ a\ file;\n\ @return\n
+comment4.params=gene
+comment4.target=float\ calCGRatio(java.lang.String)
+comment5.params=args
+comment5.target=void\ main(java.lang.String[])
+comment5.text=\n\ the\ main()\ \n\ @param\ args\n
+numComments=6

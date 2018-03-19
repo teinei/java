@@ -3,48 +3,49 @@ import edu.duke.*;
  * 243 week 2 section 4 lecture 3
  * Write a description of AllGenesStored here.
  * 
- * @author (your name) 
- * @version (a version number or a date)
+ * @author (your name) Johnny teinei
+ * @version (a version number or a date) mar16
  */
 public class AllGenesStored {
     //
     public StorageResource getAllGenes(String dna){
-        //
+        dna=dna.toUpperCase();
+        System.out.println("call getAllGenes()");
         StorageResource geneList=new StorageResource();
         int startIndex=0;
-        //System.out.println("startIndex is "+startIndex);
+        System.out.println("startIndex is "+startIndex);
         //      
         int i=0;
         int geneCount=0;
         //
         while(true){
-            //System.out.println("1)i is "+i);
-            //System.out.println("2)dna is "+dna);
-            //System.out.println("3)startIndex is "+startIndex);
+            System.out.println("1)i is "+i);
+            System.out.println("2)dna is "+dna);
+            System.out.println("3)startIndex is "+startIndex);
             String currentGene=findGene(dna,startIndex);// call set [3]
-            //
-            //System.out.println("4)currentGene is "+currentGene);
+            
+            System.out.println("4)currentGene is "+currentGene);
             if(currentGene.isEmpty()){
                 //leave this loop
-                //System.out.println("There are "+geneCount+" genes");
+                System.out.println("There are "+geneCount+" genes");
                 break;
             }
             //
             geneList.add(currentGene);
             geneCount=geneCount+1;
-            //System.out.println(currentGene);
-            //System.out.println();
+            System.out.println(currentGene);
+            System.out.println();
             startIndex=dna.indexOf(currentGene,startIndex)+
                        currentGene.length();
                        //index of currentGene from startIndex
-            //System.out.println("5)new startIndex "+startIndex);  
+            System.out.println("5)new startIndex "+startIndex);  
             //
-            //i++;
-            //System.out.println("6)new i "+i);
-            //System.out.println("-------");
+            i++;
+            System.out.println("6)new i "+i);
+            System.out.println("-------");
             
         }
-        //System.out.println("There are "+geneCount+" genes");
+        System.out.println("There are "+geneCount+" genes");
         //above line will not print
         return geneList;
     }
@@ -65,6 +66,7 @@ public class AllGenesStored {
         return 0;
     }*/
     public void testOn(String dna){
+        //System.out.println("call testOn()");
         System.out.println("testing printAllGenes on "+dna);
         //System.out.println("==========");
         StorageResource genes = getAllGenes(dna);// call set [2]
@@ -107,10 +109,12 @@ public class AllGenesStored {
         */
         //
         ///*
-        //FileResource fr=new FileResource("GRch38dnapart.fa");
+        //graded quiz
+        FileResource fr=new FileResource("GRch38dnapart.fa");
+        //graded quiz
         //FileResource fr=new FileResource();
         //------ test pq 245
-        FileResource fr=new FileResource("brca1line.fa");//not pass
+        //FileResource fr=new FileResource("brca1line.fa");//not pass
         String dna=fr.asString();//convert file resource to string
         testOn(dna);
         //------ test pq 245
@@ -152,18 +156,26 @@ public class AllGenesStored {
     }
     //code from  previous
     public String findGene(String dna,int where){
+        System.out.println("call findGene()");
         int startIndex=dna.indexOf("ATG",where);
+        System.out.println("startIndex is "+startIndex);
         if(startIndex==-1){
             return "";
         }
         int taaIndex=findStopCodon(dna,startIndex,"TAA");//call set [4]
         int tagIndex=findStopCodon(dna,startIndex,"TAG");//call set [5] 
         int tgaIndex=findStopCodon(dna,startIndex,"TGA");//call site [6] 
+        System.out.println("taaIndex is "+taaIndex+
+                           "tagIndex is "+tagIndex+
+                           "tgaIndex is "+tgaIndex);
         // use math function
         int temp=0;
         int minIndex=0;
         int currIndex=0;
         String gene="";
+        System.out.println("temp "+temp+
+                           " minIndex "+minIndex+
+                           " currIndex "+currIndex);
         /*
         if(taaIndex==-1){
             //currIndex!=taaIndex;
@@ -187,14 +199,14 @@ public class AllGenesStored {
         }
         */
         
-        //
+        /*
         if(taaIndex==-1||tagIndex==-1||tgaIndex==-1){
             //
         }else{
             temp=Math.min(taaIndex,tagIndex);
             minIndex=Math.min(temp ,tgaIndex);
             currIndex=minIndex;            
-        }
+        }*/
         
         //
         //
@@ -226,11 +238,15 @@ public class AllGenesStored {
         }
         //
         //
-        if(currIndex!=0){
+        System.out.println("currIndex "+currIndex+
+                           " dna "+dna+
+                           " startIndex "+startIndex+
+                           " dna.length() "+dna.length());
+        if(currIndex!=0&&currIndex!=-1){
             gene=dna.substring(startIndex,currIndex+3);
         }
-        System.out.println(taaIndex+","+tagIndex+","+tgaIndex);
-        System.out.println("currIndex is "+currIndex);
+        //System.out.println(taaIndex+","+tagIndex+","+tgaIndex);
+        //System.out.println("currIndex is "+currIndex);
         //
         //use logical operator
         /*

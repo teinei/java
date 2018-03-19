@@ -1,6 +1,6 @@
 #BlueJ class context
 comment0.target=AllGenesStored
-comment0.text=\n\ 243\ week\ 2\ section\ 4\ lecture\ 3\n\ Write\ a\ description\ of\ AllGenesStored\ here.\n\ \n\ @author\ (your\ name)\ \n\ @version\ (a\ version\ number\ or\ a\ date)\n
+comment0.text=\n\ 243\ week\ 2\ section\ 4\ lecture\ 3\n\ Write\ a\ description\ of\ AllGenesStored\ here.\n\ \n\ @author\ (your\ name)\ Johnny\ teinei\n\ @version\ (a\ version\ number\ or\ a\ date)\ mar16\n
 comment1.params=dna
 comment1.target=edu.duke.StorageResource\ getAllGenes(java.lang.String)
 comment2.params=dna

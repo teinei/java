@@ -1,0 +1,17 @@
+#BlueJ class context
+comment0.target=Week02_FindMultiGenesFileFAKE
+comment0.text=\n\ \n\ THIS\ ALGORITHM\ IS\ A\ FAKE\ ONE\!\n\ \n\ Algorithm\ to\ identify\ multiple\ genes\ in\ a\ strand\ of\ DNA\n\ \n\ To\ find\ the\ first\ gene,\ find\ the\ start\ codon\ ATG.\n\ Next\ look\ immediately\ past\ ATG\ for\ the\ first\ occurrence\ of\ each\ of\ the\ three\ stop\ codons\ TAG,\ TGA,\ and\ TAA.\n\ If\ the\ length\ of\ the\ substring\ between\ ATG\ and\ any\ of\ these\ three\ stop\ codons\ is\ a\ multiple\ of\ three,\ \n\ then\ a\ candidate\ for\ a\ gene\ is\ the\ start\ codon\ through\ the\ end\ of\ the\ stop\ codon.\n\ If\ there\ is\ more\ than\ one\ valid\ candidate,\ the\ smallest\ such\ string\ is\ the\ gene.\ \n\ The\ gene\ includes\ the\ start\ and\ stop\ codon.\n\ If\ no\ start\ codon\ was\ found,\ then\ you\ are\ done.\n\ If\ a\ start\ codon\ was\ found,\ but\ no\ gene\ was\ found,\ \n\ then\ start\ searching\ for\ another\ gene\ via\ the\ next\ occurrence\ of\ a\ start\ codon\ \n\ starting\ immediately\ after\ the\ start\ codon\ that\ didn't\ yield\ a\ gene.\n\ If\ a\ gene\ was\ found,\ then\ start\ searching\ for\ the\ next\ gene\ immediately\ after\ this\ found\ gene.\n\ \n\ @author\ Jeff\n\n
+comment1.params=dna
+comment1.target=void\ findGenes(java.lang.String)
+comment2.params=dna
+comment2.target=int\ countCTG(java.lang.String)
+comment3.params=gene
+comment3.target=boolean\ ratioGreaterthan35(java.lang.String)
+comment4.params=DNA\ start
+comment4.target=int\ findStopCodon(java.lang.String,\ int)
+comment5.params=
+comment5.target=java.lang.String\ readStringFromFile()
+comment6.params=args
+comment6.target=void\ main(java.lang.String[])
+comment6.text=\n\ main()\ method\n\ @param\ args\n
+numComments=7

@@ -1,0 +1,17 @@
+#BlueJ class context
+comment0.target=DifferentSorters
+comment1.params=
+comment1.target=void\ q6sortWithCompareTo()
+comment2.params=
+comment2.target=void\ sortByMagnitude()
+comment3.params=
+comment3.target=void\ sortByDistance()
+comment4.params=
+comment4.target=java.util.ArrayList\ getQuakeData()
+comment5.params=fname
+comment5.target=java.util.ArrayList\ getQuakeData(java.lang.String)
+comment6.params=
+comment6.target=void\ q7sortByTitleAndDepth()
+comment7.params=
+comment7.target=void\ q8sortByLastWordInTitleThenByMagnitude()
+numComments=8
